@@ -50,6 +50,14 @@
 http://Jenkins-IP:8080/github-webhook/
 ```
 
+### Usage (manual k8s chart setp)
+```bash
+# for development environment 
+helm install --generate-name  --debug ./k8s/ --set environment=dev  -f k8s/envs/dev/values.yaml
+# for production environment 
+helm install --generate-name  --debug ./k8s/ --set environment=prod  -f k8s/envs/prod/values.yaml
+```
+
 #### There are many ways ways to build deploy on multi-environments
 1. one cluster contains two name spaces one for production and another for development environment , that's what i configured in Jenkinsfile
 2. two clusters one per environment and that's what i did in file (Jenkinsfile_mutliecluster.gce) in same repo , if we need to make it effective either we rename it to Jenkinsfile or we change the pipeline filename from the created jenkins job to Jenkinsfile_mutliecluster.gce
