@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello
+  labels:
+    name: hello
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: hello
+  template:
+    metadata:
+      labels:
+        name: hello
+    spec:
+      containers:
+      - name: hello
+        image: moazrefat/hello:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
+          name: hello
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello
+spec:
+  ports:
+    - port: 5000
+      targetPort: 5000
+  selector:
+    name: hello
+  type: LoadBalancer
