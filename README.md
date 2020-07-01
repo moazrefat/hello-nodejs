@@ -50,7 +50,7 @@
 http://Jenkins-IP:8080/github-webhook/
 ```
 
-### Usage (manual k8s chart setp)
+### Usage (manual k8s chart steps)
 ```bash
 # for development environment 
 helm install --generate-name  --debug ./k8s/ --set environment=dev  -f k8s/envs/dev/values.yaml
