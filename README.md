@@ -54,7 +54,7 @@ This project provides the following files:
 |k8s/templates/service.yaml | Template to configure your application deployment|
 |k8s/templates/namespace.yaml	| Template to configure your application deployment| 
 |k8s/env/dev/values.yaml | Configurable values for development environment that are inserted into the following template files|
-|k8s/env/prod/values/yaml	| Configurable values for production environment that are inserted into the following template files| 
+|k8s/env/prod/values.yaml	| Configurable values for production environment that are inserted into the following template files| 
 |Dockerfile |	Docker file denfination |
 |Dockerfile |	Jenkins pipeline |
 
