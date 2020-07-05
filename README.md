@@ -10,11 +10,11 @@
 - Give the options (Go/No go) to deploy the generated image to the production environment
 
 #### Sample successful run
-![Pipeline demo](pipeline-dev.png)
+![Pipeline demo](files/pipeline-dev.png)
 ### Once you press release it will go to production 
-![Pipeline demo](pipeline-prod.png)
+![Pipeline demo](files/pipeline-prod.png)
 ### Results on kubernetes server it look like 
-![Pipeline demo](k8s-output.png)
+![Pipeline demo](files/k8s-output.png)
 
 ## Prerequisites: 
 1. Jenkins Server with below requirements 
