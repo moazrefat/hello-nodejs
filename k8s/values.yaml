@@ -7,9 +7,6 @@ environment: ""
 port: 8080
 loadbalancer:
   type: LoadBalancer
-image:
-  name: moazrefat/hello:23
-  imagePullPolicy: Always
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious

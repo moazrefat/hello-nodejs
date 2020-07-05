@@ -44,6 +44,20 @@
    - [x] Docker hub/private repository secret
    - [x] Kuberentes keys
 
+This project provides the following files:
+
+|File	| Description| 
+|--------------------------- | -----------------------------|
+|k8s/Chart.yaml |	The definition file for your application| 
+|k8s/values.yaml | Configurable values that are inserted into the following template files| 
+|k8s/templates/deployment.yaml | Template to configure your application deployment|
+|k8s/templates/service.yaml | Template to configure your application deployment|
+|k8s/templates/namespace.yaml	| Template to configure your application deployment| 
+|k8s/env/dev/values.yaml | Configurable values for development environment that are inserted into the following template files|
+|k8s/env/prod/values/yaml	| Configurable values for production environment that are inserted into the following template files| 
+|Dockerfile |	Docker file denfination |
+|Dockerfile |	Jenkins pipeline |
+
 ### Github -> Jenkins Webhook 
 ### Github > setting > webhooks > add webhook
 ```
