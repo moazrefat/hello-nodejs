@@ -9,7 +9,7 @@
 - Deploy the docker image using Helm to kubernetes cluster on development environment 
 - Give the options (Go/No go) to deploy the generated image to the production environment
 
-### Sample successful run
+# Pipeline sample run
 ![Pipeline demo](files/pipeline-dev.png)
 ### Once you press release it will go to production 
 ![Pipeline demo](files/pipeline-prod.png)
@@ -22,7 +22,7 @@
   - [x] Docker
   - [x] git
   - [x] kubectl 
-  - [x] helm 
+  - [x] helm (version 3)
 - Modules: 
   - [x] Git plugin
   - [x] Docker plugin (required for building/pushign the containers)
@@ -42,7 +42,9 @@
 3. Configure secrets:
    - [x] Git repo url and credentails if it's private repo  
    - [x] Docker hub/private repository secret
+     ![jenkins-docker-secret](files/jenkins-docker-secret.png)
    - [x] Kuberentes keys
+     ![jenkins-docker-secret](files/jenkins-kubernetes-secret.png)
 
 This project provides the following files:
 
@@ -72,11 +74,11 @@ helm install --generate-name  --debug ./k8s/ --set environment=dev  -f k8s/envs/
 helm install --generate-name  --debug ./k8s/ --set environment=prod  -f k8s/envs/prod/values.yaml
 ```
 
-#### There are many ways ways to build deploy on multi-environments, for example
-1. one cluster contains two name spaces one for production and another for development environment , that's what i configured in Jenkinsfile with this setup we still can limit the resources access for the non-production as well we can segrate between both namespaces on network level to make then completely isolated with no impact from non production environments on the other production environment
+### There are different ways to deploy on multi-environments, for example
+1. one cluster contains two name spaces , one namespace for production and another one for development environment , that's what i configured in Jenkinsfile with this setup we still can limit the resources access for the non-production as well we can segrate between both namespaces on network level to make then completely isolated with no impact from non production environments on the other production environment
 2. two clusters one per environment and that's what i did in file (Jenkinsfile_mutliecluster.gce) in same repo , if we need to make it effective either we rename it to Jenkinsfile or we change the pipeline filename from the created jenkins job to Jenkinsfile_mutliecluster.gce
 
-#### As well we can build `Multibranch Pipeline Project` so whenever the developer pushes a code to the git repo only the development branch pipeline will be triggered and the new artifact will be deployed on the development environment requester merges development branch with master branch and approver approves it then the production pripeline will be triggered and the new artifact will be deployed to production namespace/cluster. 
+#### As well we can build `multibranch pipeline project` , so whenever the developer pushes a code to the git repo only the development branch pipeline will be triggered and the new artifact will be deployed on the development environment requester merges development branch with master branch and approver approves it then the production pripeline will be triggered and the new artifact will be deployed to production namespace/cluster. 
 #### Moreover we can use ``ansible`` to take over deploying the new artifacts on different kubernetes namesapecs/clusters 
 
 ### Istio integration: 
