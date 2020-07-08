@@ -51,14 +51,14 @@ This project provides the following files:
 |k8s/Chart.yaml |	The definition file for your application| 
 |k8s/values.yaml | Configurable values that are inserted into the following template files| 
 |k8s/templates/deployment.yaml | Template to configure your application deployment|
-|k8s/templates/service.yaml | Template to configure your application deployment|
-|k8s/templates/namespace.yaml	| Template to configure your application deployment| 
+|k8s/templates/service.yaml | Template to configure your application service|
+|k8s/templates/namespace.yaml	| Template to configure your application namespace| 
 |k8s/env/dev/values.yaml | Configurable values for development environment that are inserted into the following template files|
 |k8s/env/prod/values.yaml	| Configurable values for production environment that are inserted into the following template files| 
 |Dockerfile |	Docker file denfination |
 |Jenkinsfile |	Jenkins pipeline |
 
-### Github -> Jenkins Webhook 
+### Github to Jenkins integration 
 ### Github > setting > webhooks > add webhook
 ```
 http://Jenkins-IP:8080/github-webhook/
@@ -76,9 +76,8 @@ helm install --generate-name  --debug ./k8s/ --set environment=prod  -f k8s/envs
 1. one cluster contains two name spaces one for production and another for development environment , that's what i configured in Jenkinsfile with this setup we still can limit the resources access for the non-production as well we can segrate between both namespaces on network level to make then completely isolated with no impact from non production environments on the other production environment
 2. two clusters one per environment and that's what i did in file (Jenkinsfile_mutliecluster.gce) in same repo , if we need to make it effective either we rename it to Jenkinsfile or we change the pipeline filename from the created jenkins job to Jenkinsfile_mutliecluster.gce
 
-### As well we can build Multibranch Pipeline Project so whenever the developer pushes a code to the git repo only the development branch pipeline will be triggered and the new artifact will be deployed on the development environment requester merges development branch with master branch and approver approves it then the production pripeline will be triggered and the new artifact will be deployed to production namespace/cluster. 
-
-### Moreover we can use **ansible** to take over deploying the new artifacts on different kubernetes namesapecs/clusters 
+#### As well we can build `Multibranch Pipeline Project` so whenever the developer pushes a code to the git repo only the development branch pipeline will be triggered and the new artifact will be deployed on the development environment requester merges development branch with master branch and approver approves it then the production pripeline will be triggered and the new artifact will be deployed to production namespace/cluster. 
+#### Moreover we can use ``ansible`` to take over deploying the new artifacts on different kubernetes namesapecs/clusters 
 
 ### Istio integration: 
    We can use **istio** as service mesh to acheive different deployment strategies , i have written a step-by-step guide on how to integrate istio with kubernetes and make use of different deployments features that istio offers https://github.com/moazrefat/K8S-Bonus/tree/master/istio 
