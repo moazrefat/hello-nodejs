@@ -69,10 +69,10 @@ http://Jenkins-IP:8080/github-webhook/
 ### Usage (manual k8s chart steps)
 ```bash
 # install on development environment 
-helm install --generate-name  --debug ./k8s/ --set environment=dev  -f k8s/envs/dev/values.yaml
+helm install --generate-name  --debug ./k8s/ --set environment=dev  -f k8s/envs/dev/values.yaml # or replace -f with --values 
 # install on production environment 
-helm install --generate-name  --debug ./k8s/ --set environment=prod  -f k8s/envs/prod/values.yaml
-# delete installed version 
+helm install --generate-name  --debug ./k8s/ --set environment=prod  -f k8s/envs/prod/values.yaml # or replace -f with --values 
+# delete an installed chart 
 helm delete `ChartName`
 helm uninstall `ChartName`
 ```
