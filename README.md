@@ -1,5 +1,5 @@
 ## General Idea
-### Simply once we push the application to Github then a configured github webhook will trigger a configured jenkins job to start the pipeline which is written in file `Jenkinsfile`
+Simply once we push the application to Github then a configured github webhook will trigger a configured jenkins job to start the pipeline which is written in file `Jenkinsfile`
 
 ## Pipeline stages and strategies 
 ### The pipleline consist of 5 stages: 
@@ -46,7 +46,8 @@
    - [x] Kuberentes keys
      ![jenkins-docker-secret](files/jenkins-kubernetes-secret.png)
 
-This project provides the following files:
+
+### This project provides the following files:
 
 |File	| Description| 
 |--------------------------- | -----------------------------|
