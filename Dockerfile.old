@@ -9,6 +9,7 @@ FROM dependencies AS build
 WORKDIR /app
 COPY . /app
 
+
 FROM node:8.9-alpine AS release  
 WORKDIR /app
 COPY --from=dependencies /app/package.json ./

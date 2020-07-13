@@ -95,3 +95,13 @@ Moreover we can use ``ansible`` to take over deploying the new artifacts on diff
   
 ### Gitops with kubernetes
 We can use **ArgoCD** or **Flux** as GitOps tool which is kubernetes controller that continuously monitors running applications and compares the current live state against the desired target state written in the infrasturcture git repos and apply the change if any change occurs. a link for how to https://github.com/moazrefat/K8S-Bonus/tree/master/argocd  
+
+
+
+# Update
+### Improving the Dockerfile to use multistage which significantly reduces the image size
+```
+❯ docker images -a
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+hf                  latest              5872ed054bf2        4 seconds ago       74.2MB
+```
