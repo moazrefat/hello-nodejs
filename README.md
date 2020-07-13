@@ -99,7 +99,7 @@ We can use **ArgoCD** or **Flux** as GitOps tool which is kubernetes controller 
 
 
 # Update
-### Improving the Dockerfile to use multistage which significantly reduces the image size
+Improving the [Dockerfile](https://github.com/moazrefat/hello-nodejs/blob/master/Dockerfile) file to use multistage which significantly reduces the image size
 ```
 ❯ docker images -a
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
